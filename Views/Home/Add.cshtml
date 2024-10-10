@@ -1,0 +1,15 @@
+<form method="post" asp-action="Add">
+    <input type="number" name="numberX" placeholder="first number"/>
+    <input type="number" name="numberY" placeholder="second number"/>
+    <select name="operation">
+        <option value="add">Dodaj</option>
+        <option value="subtract">Minus</option>
+        <option value="multiply">Pomnoz</option>
+        <option value="divide">Podziel</option>
+    </select>
+    <button>Oblicz</button>
+</form>
+
+@if(ViewBag.Error != null) {
+    <p style="color:red;">@ViewBag.Error</p>
+}
