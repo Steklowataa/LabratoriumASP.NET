@@ -1,0 +1,30 @@
+@model System.Collections.Generic.Dictionary<int, lab3.Models.ContactModel>
+
+<h2>Kontakty</h2>
+<a class="btn btn-primary" asp-action="Add" asp-controller="Contact">Dodaj kontakt</a>
+<h4 class="mb-3">Lista kontaktów</h4>
+
+<table class="table">
+    <thead class="mb-3">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Value.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Value.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Value.Category)</th>
+            <th>Operacje</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach(var e in Model) {
+        <tr>
+            <td>@e.Value.FirstName</td>
+            <td>@e.Value.LastName</td>
+            <td>@e.Value.Category</td>
+            <td>
+                <a class="btn btn-success" asp-action="Edit" asp-controller="Contact" asp-route-id="@e.Value.Id">Edit</a>
+                <a class="btn btn-info"  asp-action="Details" asp-controller="Contact" asp-route-id="@e.Value.Id">Szczegóły</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-controller="Contact" asp-route-id="@e.Value.Id">Usuń</a>
+            </td>
+        </tr>
+       }
+    </tbody>
+</table>

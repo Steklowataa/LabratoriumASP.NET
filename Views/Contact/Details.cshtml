@@ -1,0 +1,12 @@
+@model ContactModel
+
+<h2>Szczegóły kontaktów: </h2>
+<h3>Imie i nazwisko: </h3>
+<p>@Model.FirstName @Model.LastName</p>
+<h3>Data urodzenia: </h3>
+<p>@Model.BirthDay</p>
+<h3>Numer telefonu i email: </h3>
+<p>@Model.PhoneNumber @Model.Email</p>
+
+
+<a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
