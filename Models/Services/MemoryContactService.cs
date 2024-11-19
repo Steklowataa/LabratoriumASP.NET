@@ -1,6 +1,6 @@
-using lab3.Models;
+using lab3.Models.Services;
 
-namespace lab3.Services {
+namespace lab3.Models.Services {
 public class MemoryContactService : IContactService {
     private static Dictionary<int, ContactModel> _contacts = new()
 {
@@ -13,7 +13,7 @@ public class MemoryContactService : IContactService {
             LastName = "Lahodiuk",
             Email = "test@gmail.com",
             PhoneNumber = "444 444 444",
-            BirthDay = new DateOnly(2004, 9, 3)
+            BirthDate = new DateTime(2004, 9, 3)
         }   
     },
     {
@@ -25,7 +25,7 @@ public class MemoryContactService : IContactService {
             LastName = "Lahodiuk",
             Email = "test1@gmail.com",
             PhoneNumber = "666 666 666",
-            BirthDay = new DateOnly(2000, 10, 3)
+            BirthDate = new DateTime(2000, 10, 3)
         }
     },
     {
@@ -37,7 +37,7 @@ public class MemoryContactService : IContactService {
             LastName = "Ma",
             Email = "test2@gmail.com",
             PhoneNumber = "555 454 445",
-            BirthDay = new DateOnly(2005, 11, 27)
+            BirthDate = new DateTime(2005, 11, 27)
         }
     }
 };

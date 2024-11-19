@@ -1,7 +1,4 @@
-using lab3.Models;
-
-namespace lab3.Services
-{
+namespace lab3.Models.Services;
     public interface IContactService
     {
         List<ContactModel> GetAll();
@@ -10,4 +7,3 @@ namespace lab3.Services
         void Update(ContactModel model);    
         ContactModel? GetById(int id);
     }
-}

@@ -1,43 +1,49 @@
 @model ContactModel
 
 @{
-
+    ViewBag.Title = "title";
+    Layout = "_Layout";
 }
 
-<h2>Dodaj kontakt</h2>
+<h2>Add contact</h2>
 <form asp-action="Add" method="post">
-    <div class="mb-3">
-        <label class="form-label" asp-for="FirstName">Imie</label>
-        <input class="form-input"type="text" asp-for="FirstName">
-        <span asp-validation-for="FirstName"></span>
+    <div class="my-3">
+        <label class="form-label" asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName">
+        <span class="text-danger" asp-validation-for="FirstName"></span>
     </div>
-     <div class="mb-3">
-        <label class="form-label" asp-for="LastName">Nazwisko</label>
-        <input class="form-input"type="text" asp-for="LastName">
-        <span asp-validation-for="LastName"></span>
+    <div class="my-3">
+        <label class="form-label" asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName">
+        <span class="text-danger" asp-validation-for="LastName"></span>
     </div>
-     <div class="mb-3">
-        <label class="form-label" asp-for="PhoneNumber">Numer telefonu</label>
-        <input class="form-input"type="text" asp-for="PhoneNumber">
-        <span asp-validation-for="PhoneNumber"></span>
+    <div class="my-3">
+        <label class="form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email">
+        <span class="text-danger" asp-validation-for="Email"></span>
     </div>
-     <div class="mb-3">
-        <label class="form-label" asp-for="Email">Email</label>
-        <input class="form-input"type="text" asp-for="Email">
-        <span asp-validation-for="Email"></span>
+    <div class="my-3">
+        <label class="form-label" asp-for="PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber">
+        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
     </div>
-     <div class="mb-3">
-        <label class="form-label" asp-for="BirthDay">Data urodzenia</label>
-        <input class="form-input"type="text" asp-for="BirthDay">
-        <span asp-validation-for="BirthDay"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" asp-for="Category">Category</label>
-        <select class="form-input" asp-for="Category" asp-items="@Html.GetEnumSelectList<Category>()">
-        </select>
-        <span asp-validation-for="Category"></span>
+    <div class="my-3">
+        <label class="form-label" asp-for="BirthDate"></label>
+        <input class="form-control" asp-for="BirthDate">
+        <span class="text-danger" asp-validation-for="BirthDate"></span>
     </div>
 
-    <button type="submit" class="btn btn-nfo">Submit</button>
-    <button type="reset"class="btn btn-denger">Edit</button>
+    <div class="my-3">
+        <label class="form-label" asp-for="Category"></label>
+        <select
+            class="form-control"
+            asp-for="Category"
+            asp-items="@Html.GetEnumSelectList<Category>()"
+        >
+        </select>
+        <span class="text-danger" asp-validation-for="Category"></span>
+    </div>
+    
+    <button class="btn btn-primary" type="submit">Add</button>
+    <button class="btn btn-danger" type="reset">Reset</button>
 </form>
