@@ -1,0 +1,43 @@
+@model IEnumerable<zaliczenie_final.Entities.UniversityRankingYear>
+
+<h2>Wszystkie Rankingi Uniwersytetów (Alfabetycznie)</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>University name</th>
+        <th>Country</th>
+        <th>Ranking Criterium</th>
+        <th>Year</th>
+        <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        int counter = (ViewBag.CurrentPage - 1) * 10 + 1;
+    }
+    @foreach (var ranking in Model)
+    {
+        <tr>
+            <td>@counter</td>
+            <td>@ranking.University?.UniversityName</td>
+            <td>@ranking.University?.Country?.CountryName</td>
+            <td>@ranking.RankingCriteria.CriteriaName</td>
+            <td>@ranking.Year</td>
+            <td>@ranking.Score</td>
+        </tr>
+        counter++;
+    }
+    </tbody>
+</table>
+<div>
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a asp-action="AlphabeticalRankings" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)" class="btn btn-primary">Previous</a>
+    }
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a asp-action="AlphabeticalRankings" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)" class="btn btn-primary">Next</a>
+    }
+</div>

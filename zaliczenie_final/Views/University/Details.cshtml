@@ -1,0 +1,45 @@
+@model zaliczenie_final.Entities.UniversityViewModel
+
+<h4>University Details</h4>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Numer</th>
+        <th>University Name</th>
+        <th>Country</th>
+        <th>Year</th>
+        <th>Score</th>
+        <th>Ranking Criteria</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var ranking in Model.UniversityRankingYears)
+    {
+        <tr>
+            <td>@((Model.CurrentPage - 1) * 10 + Model.UniversityRankingYears.IndexOf(ranking) + 1)</td>
+            <td>@Model.University.UniversityName</td>
+            <td>@Model.University.Country?.CountryName</td>
+            <td>@ranking.Year</td>
+            <td>@ranking.Score</td>
+            <td>@ranking.RankingCriteria.CriteriaName</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="pagination">
+    @if (Model.CurrentPage > 1)
+    {
+        <a asp-action="Details" asp-route-id="@Model.University.Id" asp-route-pageNumber="@(Model.CurrentPage - 1)">Previous</a>
+    }
+    @if (Model.CurrentPage < Model.TotalPages)
+    {
+        <a asp-action="Details" asp-route-id="@Model.University.Id" asp-route-pageNumber="@(Model.CurrentPage + 1)">Next</a>
+    }
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.University.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

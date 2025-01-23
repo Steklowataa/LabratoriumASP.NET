@@ -1,0 +1,31 @@
+@model zaliczenie_final.Entities.AddRankingModel
+
+<h2>Add New University Ranking</h2>
+
+<form asp-action="AddRanking" method="post">
+    <div class="form-group">
+        <label for="UniversityId">University</label>
+        <select asp-for="UniversityId" asp-items="Model.Universities" class="form-control"></select>
+        <span asp-validation-for="UniversityId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input asp-for="Year" class="form-control" type="number" min="2017" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="RankingCriteriaId">Ranking Criteria</label>
+        <select asp-for="RankingCriteriaId" asp-items="Model.RankingCriterion" class="form-control"></select>
+        <span asp-validation-for="RankingCriteriaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Score">Score</label>
+        <input asp-for="Score" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Score" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Ranking</button>
+</form>

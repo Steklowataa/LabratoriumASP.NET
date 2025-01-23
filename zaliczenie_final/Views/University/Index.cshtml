@@ -1,0 +1,70 @@
+@model zaliczenie_final.Entities.UniversityPaginationViewModel
+
+<table class="table table-bordered table-striped text-center">
+    <thead>
+        <tr>
+            <th>University Name</th>
+            <th>Country Name</th>
+            <th>Ranking System</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.UniversityName</td>
+                <td>@item.CountryName</td>
+                <td>@item.SystemName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" method="post" >
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Sekcja paginacji -->
+<div class="pagination-container text-center mt-4">
+    <nav>
+        <ul class="pagination justify-content-center">
+            @if (Model.PageNumber > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber - 1)" asp-route-pageSize="@Model.PageSize">
+                        &laquo; Previous
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo; Previous</span>
+                </li>
+            }
+
+            <li class="page-item disabled">
+                <span class="page-link">Page @Model.PageNumber of @((Model.TotalCount + Model.PageSize - 1) / Model.PageSize)</span>
+            </li>
+
+            @if (Model.PageNumber < (Model.TotalCount + Model.PageSize - 1) / Model.PageSize)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber + 1)" asp-route-pageSize="@Model.PageSize">
+                        Next &raquo;
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">Next &raquo;</span>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
