@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using zaliczenie_final.Context;
 
@@ -10,9 +11,11 @@ using zaliczenie_final.Context;
 namespace zaliczenie_final.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250123191233_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.12");
@@ -45,8 +48,8 @@ namespace zaliczenie_final.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "51b83441-d93c-44a1-8dff-feb7359f8fb7",
-                            ConcurrencyStamp = "51b83441-d93c-44a1-8dff-feb7359f8fb7",
+                            Id = "c11cf6cf-fb58-4fcc-a830-532b7e2099be",
+                            ConcurrencyStamp = "c11cf6cf-fb58-4fcc-a830-532b7e2099be",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -141,17 +144,17 @@ namespace zaliczenie_final.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b96d303a-acb6-4b09-bbf1-342c1241fb1d",
+                            Id = "7b3f14b5-9fea-4f81-8307-11d8c46e2caf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ce0ee10-7136-4534-858b-3e534131be53",
+                            ConcurrencyStamp = "f84b3ae9-6478-4a99-a29a-4fdcad62bdac",
                             Email = "adam@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADAM@WSEI.EDU.PL",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJsCGxNA+x9NTtE6Q4TVeZdwEQMz2g0XI/OM28mmG4Vv3vgEGv4qe2jPXI0aVIgU4A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGUCfJVz+MWEgGJ4QW53SrDeMV5pYhbMkhxN0RLmw09syBZYtF/wzZ9NG4/eFc4AMA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "63538c7a-01ab-4649-bea0-22b6d906b62a",
+                            SecurityStamp = "ba581100-eee3-4f55-9ae3-c697368dc78c",
                             TwoFactorEnabled = false,
                             UserName = "adam"
                         });
@@ -219,8 +222,8 @@ namespace zaliczenie_final.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "b96d303a-acb6-4b09-bbf1-342c1241fb1d",
-                            RoleId = "51b83441-d93c-44a1-8dff-feb7359f8fb7"
+                            UserId = "7b3f14b5-9fea-4f81-8307-11d8c46e2caf",
+                            RoleId = "c11cf6cf-fb58-4fcc-a830-532b7e2099be"
                         });
                 });
 

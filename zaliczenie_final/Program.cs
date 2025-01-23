@@ -12,12 +12,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         
-        builder.Services.AddDbContext<MyDbContext>(options =>
-        {
-            options.UseSqlite("Data Source=/Users/aleksandra/university.db");
-            // options.UseSqlite(builder.Configuration[":ConnectionString"]);
+        builder.Services.AddDbContext<MyDbContext>(options => {
+            options.UseSqlite(builder.Configuration["MyDbContext:ConnectionString"]);
         });
-
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

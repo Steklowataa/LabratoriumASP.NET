@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("zaliczenie_final")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+742ba76fbac961463fd7960a5605c02eb10d729e")]
 [assembly: System.Reflection.AssemblyProductAttribute("zaliczenie_final")]
 [assembly: System.Reflection.AssemblyTitleAttribute("zaliczenie_final")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
